@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="exercise">
+    <div>
+        {{ text }}
+    </div>
+    <div>
+        <input type="text" v-on:keyup.enter="addLine">
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            text: ''
+        },
+        methods: {
+            addLine: function(event) {
+                this.text += event.target.value;
+                event.target.value = '';
+            }
+        }
+    });
+</script>

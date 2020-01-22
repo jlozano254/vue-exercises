@@ -1,0 +1,41 @@
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="exercise">
+    <div>
+        <button @click="value++">Plus</button>
+    </div>
+    <div>
+        <button @click="value--">Minus</button>
+    </div>
+    <div>
+        <button @click="secondValue++">Increment second value</button>
+    </div>
+    <div>
+        {{ counter }} | {{ counter2() }}
+    </div>
+    <div>
+        {{ value }} | {{ secondValue }}
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#exercise',
+        data: {
+            value: 0,
+            secondValue : 0
+        },
+        computed: {
+            counter() {
+                console.log("I computed got called!");
+                return this.value < 3 ? 'less 3' : 'greater or equal than 3';
+            }
+        },
+        methods: {
+            counter2() {
+                console.log("I method got called!");
+                return this.value < 3 ? 'less 3' : 'greater or equal than 3';
+            }
+        }
+    });
+</script>
